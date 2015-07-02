@@ -1,0 +1,71 @@
+<!--
+Copyright 2015 Christian Fröhlingsdorf, 5cf.de
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Visithampshire | 1FROEC53</title>
+        <!-- CSS -->
+        <link rel="stylesheet" href="style/leaflet.css" />
+        <link rel="stylesheet" href="style/jquery-ui.min.css" />
+        <link rel="stylesheet" href="style/jquery-ui.structure.min.css" />
+        <!-- Own CSS -->
+        <link rel="stylesheet" href="style/app.css" />
+        <!-- JS loaded at the bottom of the page -->
+    </head>
+    <body>
+
+        <div id="map-container">
+            <div id="selection-container">
+				POI-Filter:
+                <select id="filter-class">
+                    <option value="type" selected>Type</option>
+                    <option value="name">Name</option>
+                    <option value="region">Region</option>
+                    <option value="country">Country</option>
+                </select>
+                <input placeholder="Enter something.." id="filter-value" autocomplete='off' onchange="onFilterValueChange();"
+                       onkeyup="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();" />
+				Visit Hampshire
+				- - - (c) Christian Fröhlingsdorf 2015
+            </div>
+
+            <div id="map"></div>
+            <div id="map_e"></div>
+        </div>
+
+        <!-- External JS -->
+        <script src="ext/leaflet.js"></script>
+        <script src="ext/jquery-2.1.1.min.js"></script>
+        <script src="ext/jquery-ui.min.js"></script>
+        <!-- Own JS -->
+		<script>function isJSON(a){if(""===a||" "===a||null===a||"undefined"===typeof a)return!1;
+		try{var b=JSON.parse(a);if(b&&"object"===typeof b&&null!==b)return!0}
+		catch(c){}return!1};</script>
+		<script src="src/proxy_request.js"></script>
+        <!-- Simple JS (obj)Classes -->
+        <script src="src/poiObj.js"></script>
+        <script src="src/reviewObj.js"></script>
+        <!-- Complex JS Classes -->
+        <script src="src/mapObj.js"></script>
+        <script src="src/ioObj.js"></script>
+        <script src="src/ioMap.js"></script>
+        <!-- Main JS -->
+        <script src="app.js"></script>
+        <script src="src/search.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,121 @@
+<!--
+Copyright 2015 Christian Fröhlingsdorf, 5cf.de
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<!doctype>
+<html>
+	<head>
+		<title>Webservice (Websocket Proxy) Test</title>
+		<script src="jquery-2.1.1.min.js"></script>
+		<script>
+			$(function(){
+				$("#jtype").change(function(){
+					var type = $("#jtype option:selected").val();
+					$("#jdata").val(getExampleForType(type));
+				});
+			});
+		
+			function fire(){
+			
+				$("#jfire").hide();
+				$("#jresult").empty();
+				var _proxy = $("#jtype option:selected").val();
+				var _delivery = $("#jdata").val();
+				
+				$.post("proxy_curl.php", {proxy: _proxy, delivery: _delivery}, function(res) {
+	
+					if(typeof res.result === "undefined"){
+						$("#jresult").val("Request failed!");
+					} else {
+						$("#jresult").val(res.content);
+					}
+					
+					$("#jfire").show();
+					
+				}).fail(function(err) {
+					$("#jresult").val(err.responseText);
+					$("#jfire").show();
+				});
+				
+			};
+			
+			function getExampleForType(type) {
+				switch(type){
+					case "getDefaultLocation": return "no data required..";
+					case "addPoi": return '{"lat": 50.914373, "lon": -1.403669}';
+					case "removePoi": return "99";
+					case "changePoi": return '{"ID":1077,"name":null,"type":null,"country":null,"region":null,"lon":-1.403669,"lat":50.914373,"description":null}';
+					case "getPoi": return "12";
+					case "getAllShorts": return "no data required..";
+					case "getReviews": return "16";
+					case "addReview": return '{"poi_id":16,"review":"best place on earth"}';
+					case "getShorts": return '{"class": "name", "value": "*", "lat": 50.914373, "lon": -1.403669, "zoom": 10, "available_classes": ["type", "name", "country", "region"], "available_zoom": "0-18"}';
+					case "getAutoCompletes": return '{"autoType": "name", "autoValue": "sa", "available_autoTypes": ["type", "name", "country", "region"]}';
+					case "authenticate": return '{"user": "admin", "password": "admin123"}';
+					default: return "";
+				}
+			};
+		</script>
+	</head>
+	<body>
+		<center>
+			<h3>Webservice (Websocket Proxy) Test</h3>
+			
+			Request-Action:
+			<select id="jtype">
+				<option value="getDefaultLocation" selected>getDefaultLocation</option>
+				<option value="addPoi">addPoi</option>
+				<option value="removePoi">removePoi</option>
+				<option value="changePoi">changePoi</option>
+				<option value="getPoi">getPoi</option>
+				<option value="getAllShorts">getAllShorts</option>
+				<option value="getReviews">getReviews</option>
+				<option value="addReview">addReview</option>
+				<option value="getShorts">getShorts</option>
+				<option value="getAutoCompletes">getAutoCompletes</option>
+				<option value="authenticate">authenticate</option>
+				<option value="badType">badType</option>
+            </select><br /><br />
+			
+			Request-Content(JSON):<br />
+			<textarea id="jdata" cols="60" rows="6">no data required..</textarea><br /><br />
+			Send Request:
+			<input id="jfire" type="submit" value="Test" onclick="fire()" /><br /><br />
+			Server Response:<br />
+			<textarea id="jresult" cols="60" rows="15"></textarea><br /><br />
+			<div>
+				How to use this test?<br />
+				Pick an action from the dropdown at the top and an example JSON object will show up in the "Request-Contenet" field.
+				You can edit it or send it as it is via the "Test" button. You will see the servers response forwarded by the proxy
+				in the "Server Response" field.<br /><br />
+			
+				Why JSON and no full param list?<br />
+				As the Websocket Webservice works with a simple emit event string (aka type or action)
+				and in most cases with an object that is passed to the emitter, the lazy proxy accepts the exact
+				same parameters type_string(type) and json_content_object(delivery).<br /><br />
+				
+				How does this work?<br />
+				The parameters are send in an AJAX HTTP POST request to a PHP script on this server.<br />
+				The scripts then wraps another POST Request around the parameters and uses CURL to talk to the
+				Proxy Server that runs on port 3536 of this server.<br /> The Proxy server uses his established socket connection
+				to deliver the parameters in the same manner the first party application would do it <br />and returns the result as
+				HTTP reponse back to the CURL script which echos the JSON response which is then grabbed by the AJAX call from
+				the beginning.
+			</div>
+		</center>
+		<footer style="margin-top: 20px; font-size: 10pt;">
+		(c) Christian Froehlingsdorf 2015, Apache 2.0 License
+		</footer>
+	</body>
+</html>

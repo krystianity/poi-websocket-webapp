@@ -1,0 +1,96 @@
+/*
+Copyright 2015 Christian Fröhlingsdorf, 5cf.de
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+#map-container {
+    margin: 0 auto;
+    margin-top: 2%;
+    width: 100%;
+    height: 520px;
+}
+#map {
+    width: 100%;
+    height: 100%;
+}
+#map_e {
+    color: red;
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+}
+.poi-marker {
+
+}
+[poi_id] {
+}
+/* POI POPUP CONTENT */
+.full-poi {
+
+}
+input.full-poi {
+    width: 300px;
+}
+.show-poi {
+
+}
+span.show-poi {
+    width: 300px;
+}
+.poi-name {
+    color: blue;
+}
+.poi-type {
+
+}
+.poi-country {
+
+}
+.poi-region {
+
+}
+.poi-desc {
+
+}
+.poi-lat, .poi-lon {
+    display: none;
+}
+/* REVIEW POPUP CONTENT */
+.full-review {
+
+}
+input.full-review {
+
+}
+.show-review {
+
+}
+span.show-review {
+
+}
+.review-id {
+    display: none;
+}
+.review-poi_id {
+    display: none;
+}
+.review-review {
+
+}
+#reviews-head {
+    font-weight: bold;
+}
+#selection-container {
+    margin-bottom: 2%;
+}

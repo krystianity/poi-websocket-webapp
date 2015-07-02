@@ -1,0 +1,12 @@
+{
+  "name": "MapsProject",
+  "description": "Interactive GeoLocation POI Map using WebSockets",
+  "author": "Christian Froehlingsdorf <contact@5cf.de>",
+  "dependencies": {
+    "express": ">= 4.12.3",
+    "socket.io": ">= 1.3.5",
+	"sqlite3": ">= 3.0.5",
+	"socket-anti-spam": ">= 0.1.6"
+  },
+  "engine": "node 0.10.33"
+}

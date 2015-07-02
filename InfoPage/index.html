@@ -1,0 +1,62 @@
+<!--
+Copyright 2015 Christian Fröhlingsdorf, 5cf.de
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<!doctype>
+<html>
+	<head>
+		<title>POI Project</title>
+		<style>body { font-family: Helvetica; }</style>
+	</head>
+	<body>
+		
+		<center style="margin-top: 10px;"><h1>POI Project 1FROEC53 Mainpage</h1></center>
+		
+		<center style="margin-top: 50px; color: red;">Please note: Spamming requests on the server (120req+/30sec) will result in a short temporary block; to keep the server safe.</center>
+	
+		<center style="margin-top: 50px;"><h2>Features:</h2></center>
+		<center style="margin-top: 10px;"><h3>- Object Orienten Approach (incl. wrappers for socket.io and leaflet.js) -</h3></center>
+		<center style="margin-top: 10px;"><h3>- On Map Application (full controll inside of popups on map) [toHtml() and fromHtml()] -</h3></center>
+		<center style="margin-top: 10px;"><h3>- Content of markers is loaded on demand (popup open), range of markers is loaded on map movement/panning/zooming -</h3></center>
+		<center style="margin-top: 10px;"><h3>- First Party App synchronises markers in real time with other visitors (Full-Duplex Websocket Connection and POI Events) -</h3></center>
+		<center style="margin-top: 10px;"><h3>- Websocket server with portable SQLite3 POI database -</h3></center>
+		<center style="margin-top: 10px;"><h3>- Proxy server that transfers HTTP POST Requests through a socket connection to the Websocket server -</h3></center>
+		<center style="margin-top: 10px;"><h3>- Third Party App that exploits the OOM and uses its own php.script to CURL POST Requests to the Proxy server -</h3></center>
+		<center style="margin-top: 10px;"><h3>- POI Filter + realtime auto complete filter input -</h3></center>
+		<center style="margin-top: 10px;"><h3>- Open Popups will stop the panning to update the marker list (until they are closed) -</h3></center>
+		<center style="margin-top: 10px;"><h3>- Simple click somewhere on the map to add a new POI -</h3></center>
+		<center style="margin-top: 10px;"><h3>- Will automatically get the devices geo position and update the map area on Mobile and Desktop devices -</h3></center>
+		<center style="margin-top: 10px;"><h3>- Works on mobile devices, make sure to pinch in on a non map area to have easy access to the popups -</h3></center>
+		<center style="margin-top: 10px;"><h3>- Implemented but not executed in apps: user login, circle, polygon wrapper a.m. -</h3></center>
+		
+		<center style="margin-top: 50px;"><h2>Clients Use:</h2></center>
+		<center style="margin-top: 10px;"><h3>leaflet.js <a href="https://github.com/Leaflet/Leaflet/blob/master/LICENSE">License</a></h3></center>
+		<center style="margin-top: 10px;"><h3>jQuery + jQueryUI <a href="https://jquery.org/license/">License</a></h3></center>
+		<center style="margin-top: 10px;"><h3>socket.io <a href="http://socket.io/">License</a></h3></center>
+		
+		<center style="margin-top: 50px;"><h2>Servers Use:</h2></center>
+		<center style="margin-top: 10px;"><h3><a href="https://nodejs.org/">nodejs</a></h3></center>
+		<center style="margin-top: 10px;"><h2>npm:</h2></center>
+		<center style="margin-top: 10px;"><h3>express</h3></center>
+		<center style="margin-top: 10px;"><h3>body-parser</h3></center>
+		<center style="margin-top: 10px;"><h3>socket.io + socket.io-client</h3></center>
+		<center style="margin-top: 10px;"><h3>socket-anti-spam</h3></center>
+		<center style="margin-top: 10px;"><h3>sqlite3</h3></center>
+		<center style="margin-top: 10px;"><h3>forever</h3></center>
+	
+		<footer style="margin-top: 80px; font-size: 10pt;">
+		(c) Christian Froehlingsdorf 2015, Apache 2.0 License
+		</footer>
+	</body>
+</html>
